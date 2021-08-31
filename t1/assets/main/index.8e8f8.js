@@ -1,7 +1,7 @@
 System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
   'use strict';
 
-  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, Component;
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, Component, director, VideoPlayer, UITransform;
 
   return {
     setters: [function (module) {
@@ -17,6 +17,9 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
       EventHandler = module.EventHandler;
       CCString = module.CCString;
       Component = module.Component;
+      director = module.director;
+      VideoPlayer = module.VideoPlayer;
+      UITransform = module.UITransform;
     }],
     execute: function () {
       var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _temp;
@@ -73,7 +76,12 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
                       this.playVideoFromCamera();
                     }
 
-                  case 4:
+                    this.schedule(function () {
+                      var vp = director.getScene().getComponentInChildren(VideoPlayer);
+                      console.log(vp.getComponent(UITransform).contentSize.x, vp.getComponent(UITransform).contentSize.y);
+                    }, 1);
+
+                  case 5:
                   case "end":
                     return _context.stop();
                 }
