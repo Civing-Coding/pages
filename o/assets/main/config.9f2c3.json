@@ -1,0 +1,42 @@
+{
+    "importBase": "import",
+    "nativeBase": "native",
+    "name": "main",
+    "deps": [],
+    "uuids": [
+        "063c6c37d",
+        "4d769f95-3741-4e0c-a0b0-0436654cb654",
+        "654a8e5e-8b6e-4cda-9ee0-877cb69e1f28",
+        "fd8ec536-a354-4a17-9c74-4f3883c378c8"
+    ],
+    "paths": {
+        "fd8ec536-a354-4a17-9c74-4f3883c378c8": [
+            "db:/internal/default_renderpipeline/builtin-forward",
+            "cc.RenderPipeline"
+        ]
+    },
+    "scenes": {
+        "db://assets/ar.scene": "654a8e5e-8b6e-4cda-9ee0-877cb69e1f28"
+    },
+    "packs": {
+        "063c6c37d": [
+            "4d769f95-3741-4e0c-a0b0-0436654cb654",
+            "654a8e5e-8b6e-4cda-9ee0-877cb69e1f28"
+        ]
+    },
+    "versions": {
+        "import": [
+            "063c6c37d",
+            "fa0c7",
+            "fd8ec536-a354-4a17-9c74-4f3883c378c8",
+            "731f4"
+        ],
+        "native": [
+            "4d769f95-3741-4e0c-a0b0-0436654cb654",
+            "124c1"
+        ]
+    },
+    "redirect": [],
+    "debug": true,
+    "extensionMap": {}
+}
