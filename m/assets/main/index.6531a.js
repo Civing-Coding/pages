@@ -1,7 +1,7 @@
 System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
   'use strict';
 
-  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, Component, director, VideoPlayer, UITransform;
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, CCBoolean, Component, view, UITransform;
 
   return {
     setters: [function (module) {
@@ -16,13 +16,13 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
       _decorator = module._decorator;
       EventHandler = module.EventHandler;
       CCString = module.CCString;
+      CCBoolean = module.CCBoolean;
       Component = module.Component;
-      director = module.director;
-      VideoPlayer = module.VideoPlayer;
+      view = module.view;
       UITransform = module.UITransform;
     }],
     execute: function () {
-      var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _temp;
+      var _dec, _dec2, _dec3, _dec4, _class, _class2, _descriptor, _descriptor2, _descriptor3, _temp;
 
       cclegacy._RF.push({}, "af567r4CB5NVosAQyNFM6sC", "AR_Recognition", undefined);
 
@@ -34,7 +34,7 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
       }), _dec3 = property({
         displayName: 'marker Path',
         type: [CCString]
-      }), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
+      }), _dec4 = property(CCBoolean), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
         _inheritsLoose(AR_Recognition, _Component);
 
         function AR_Recognition() {
@@ -50,6 +50,8 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
 
           _initializerDefineProperty(_assertThisInitialized(_this), "markers", _descriptor2, _assertThisInitialized(_this));
 
+          _initializerDefineProperty(_assertThisInitialized(_this), "once", _descriptor3, _assertThisInitialized(_this));
+
           _defineProperty(_assertThisInitialized(_this), "_arCtrl", null);
 
           _defineProperty(_assertThisInitialized(_this), "_video", null);
@@ -61,27 +63,35 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
 
         _proto.start = /*#__PURE__*/function () {
           var _start = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-            var cameras;
+            var rate, winSize, visibleSize, details, cameras;
             return regeneratorRuntime.wrap(function _callee$(_context) {
               while (1) {
                 switch (_context.prev = _context.next) {
                   case 0:
-                    _context.next = 2;
+                    rate = 1 / view.getDevicePixelRatio();
+                    /* ******打印一些参数细节，方便调试****** */
+
+                    winSize = view.getCanvasSize();
+                    visibleSize = view.getVisibleSize();
+                    details = " %c\u25C6%c winSize : {width : " + winSize.width + ", height : " + winSize.height + "}  \n";
+                    details += "   visibleSize : {width : " + visibleSize.width + ", height : " + visibleSize.height + "}  \n";
+                    details += "   PixelRatio : " + rate + "\n";
+                    details += "   browserDetails :" + globalThis.adapter.browserDetails.browser + "     " + globalThis.adapter.browserDetails.version;
+                    console.log(details, "color:#009999;font-weight:bold", "color:#6666ff;font-weight:bold;font-size:14px");
+                    /* ***************结束***************** */
+
+                    this.getComponent(UITransform).setContentSize(visibleSize);
+                    _context.next = 11;
                     return this.getConnectedDevices('videoinput');
 
-                  case 2:
+                  case 11:
                     cameras = _context.sent;
 
                     if (cameras && cameras.length > 0) {
                       this.playVideoFromCamera();
                     }
 
-                    this.schedule(function () {
-                      var vp = director.getScene().getComponentInChildren(VideoPlayer);
-                      console.log(vp.getComponent(UITransform).contentSize.x, vp.getComponent(UITransform).contentSize.y);
-                    }, 1);
-
-                  case 5:
+                  case 13:
                   case "end":
                     return _context.stop();
                 }
@@ -132,48 +142,48 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
 
         _proto.playVideoFromCamera = /*#__PURE__*/function () {
           var _playVideoFromCamera = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-            var constraints, stream, videoElement;
+            var winSize, constraints, stream, videoElement;
             return regeneratorRuntime.wrap(function _callee3$(_context3) {
               while (1) {
                 switch (_context3.prev = _context3.next) {
                   case 0:
                     _context3.prev = 0;
+                    winSize = view.getCanvasSize();
                     constraints = {
                       'video': {
-                        //393 //851
                         facingMode: "environment",
-                        width: 851,
-                        height: 393
+                        width: winSize.width,
+                        height: winSize.height
                       },
                       'audio': false
                     };
-                    _context3.next = 4;
+                    _context3.next = 5;
                     return navigator.mediaDevices.getUserMedia(constraints);
 
-                  case 4:
+                  case 5:
                     stream = _context3.sent;
                     videoElement = document.querySelector('video');
                     videoElement.srcObject = stream;
-                    _context3.next = 9;
+                    _context3.next = 10;
                     return videoElement.play();
 
-                  case 9:
+                  case 10:
                     this._video = videoElement;
                     this.initARToolkit();
-                    _context3.next = 16;
+                    _context3.next = 17;
                     break;
 
-                  case 13:
-                    _context3.prev = 13;
+                  case 14:
+                    _context3.prev = 14;
                     _context3.t0 = _context3["catch"](0);
                     console.error('Error opening video camera.', _context3.t0);
 
-                  case 16:
+                  case 17:
                   case "end":
                     return _context3.stop();
                 }
               }
-            }, _callee3, this, [[0, 13]]);
+            }, _callee3, this, [[0, 14]]);
           }));
 
           function playVideoFromCamera() {
@@ -236,7 +246,7 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
             //识别图片
             console.log('识别到类型：gartoolkit.PATTERN_MARKER');
             EventHandler.emitEvents(this.markerCallBack, event.data.marker.idPatt);
-            this.unscheduleAllCallbacks();
+            if (this.once) this.unscheduleAllCallbacks();
           } // if (event.data.type === globalThis.artoolkit.BARCODE_MARKER) {
           //     //识别黑白标记
           //     console.log('识别到类型：gartoolkit.BARCODE_MARKER');
@@ -259,6 +269,13 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
         writable: true,
         initializer: function initializer() {
           return [];
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "once", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return false;
         }
       })), _class2)) || _class));
 
