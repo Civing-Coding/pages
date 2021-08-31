@@ -142,8 +142,8 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
                       'video': {
                         //393 //851
                         facingMode: "environment",
-                        width: 393,
-                        height: 851
+                        width: 851,
+                        height: 393
                       },
                       'audio': false
                     };
