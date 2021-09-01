@@ -1,0 +1,68 @@
+{
+    "importBase": "import",
+    "nativeBase": "native",
+    "name": "main",
+    "deps": [],
+    "uuids": [
+        "040b5456b",
+        "045f200a8",
+        "09b3eff11",
+        "127c8b03-83d7-4375-9492-ba5b23a72d95",
+        "127c8b03-83d7-4375-9492-ba5b23a72d95@6c48a",
+        "127c8b03-83d7-4375-9492-ba5b23a72d95@f9941",
+        "4d769f95-3741-4e0c-a0b0-0436654cb654",
+        "654a8e5e-8b6e-4cda-9ee0-877cb69e1f28",
+        "d617fc05-a527-48bd-85b7-9b15f6bb5349",
+        "d617fc05-a527-48bd-85b7-9b15f6bb5349@6c48a",
+        "d617fc05-a527-48bd-85b7-9b15f6bb5349@f9941",
+        "fd8ec536-a354-4a17-9c74-4f3883c378c8"
+    ],
+    "paths": {
+        "fd8ec536-a354-4a17-9c74-4f3883c378c8": [
+            "db:/internal/default_renderpipeline/builtin-forward",
+            "cc.RenderPipeline"
+        ]
+    },
+    "scenes": {
+        "db://assets/ar.scene": "654a8e5e-8b6e-4cda-9ee0-877cb69e1f28"
+    },
+    "packs": {
+        "040b5456b": [
+            "127c8b03-83d7-4375-9492-ba5b23a72d95",
+            "d617fc05-a527-48bd-85b7-9b15f6bb5349"
+        ],
+        "09b3eff11": [
+            "127c8b03-83d7-4375-9492-ba5b23a72d95@f9941",
+            "4d769f95-3741-4e0c-a0b0-0436654cb654",
+            "654a8e5e-8b6e-4cda-9ee0-877cb69e1f28",
+            "d617fc05-a527-48bd-85b7-9b15f6bb5349@f9941"
+        ],
+        "045f200a8": [
+            "127c8b03-83d7-4375-9492-ba5b23a72d95@6c48a",
+            "d617fc05-a527-48bd-85b7-9b15f6bb5349@6c48a"
+        ]
+    },
+    "versions": {
+        "import": [
+            "040b5456b",
+            "d8f07",
+            "045f200a8",
+            "0fcf6",
+            "09b3eff11",
+            "203fd",
+            "fd8ec536-a354-4a17-9c74-4f3883c378c8",
+            "731f4"
+        ],
+        "native": [
+            "127c8b03-83d7-4375-9492-ba5b23a72d95",
+            "82e0a",
+            "4d769f95-3741-4e0c-a0b0-0436654cb654",
+            "124c1",
+            "d617fc05-a527-48bd-85b7-9b15f6bb5349",
+            "66213"
+        ]
+    },
+    "redirect": [],
+    "debug": true,
+    "extensionMap": {}
+}
