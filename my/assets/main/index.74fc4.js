@@ -1,7 +1,7 @@
 System.register("chunks:///_virtual/AR_Track.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
   'use strict';
 
-  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, find, Mat4, Quat, v3, view, Component, sys, UITransform;
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, find, view, v3, Component, sys, UITransform;
 
   return {
     setters: [function (module) {
@@ -17,10 +17,8 @@ System.register("chunks:///_virtual/AR_Track.ts", ['./_rollupPluginModLoBabelHel
       EventHandler = module.EventHandler;
       CCString = module.CCString;
       find = module.find;
-      Mat4 = module.Mat4;
-      Quat = module.Quat;
-      v3 = module.v3;
       view = module.view;
+      v3 = module.v3;
       Component = module.Component;
       sys = module.sys;
       UITransform = module.UITransform;
@@ -78,22 +76,23 @@ System.register("chunks:///_virtual/AR_Track.ts", ['./_rollupPluginModLoBabelHel
                     details = "%cwinSize : {width : " + winSize.width + ", height : " + winSize.height + "}  \n";
                     details += "visibleSize : {width : " + visibleSize.width + ", height : " + visibleSize.height + "}  \n";
                     details += "PixelRatio : " + rate + "\n";
+                    details += "ismobile: " + sys.isMobile + "\n";
                     details += "browserDetails :" + globalThis.adapter.browserDetails.browser + "     " + globalThis.adapter.browserDetails.version;
                     console.log(details, "color:#6666ff;font-weight:bold;font-size:14px");
                     /* ***************结束***************** */
 
                     this.getComponent(UITransform).setContentSize(visibleSize);
-                    _context.next = 11;
+                    _context.next = 12;
                     return this.getConnectedDevices('videoinput');
 
-                  case 11:
+                  case 12:
                     cameras = _context.sent;
 
                     if (cameras && cameras.length > 0) {
                       this.playVideoFromCamera();
                     }
 
-                  case 13:
+                  case 14:
                   case "end":
                     return _context.stop();
                 }
@@ -248,16 +247,16 @@ System.register("chunks:///_virtual/AR_Track.ts", ['./_rollupPluginModLoBabelHel
                 id: event.data.marker.idPatt,
                 pos: this.getTrackPos(event.data.marker.pos)
               });
-              var star = find('Canvas/star');
-              var markerMat = new Mat4();
-              Mat4.fromArray(markerMat, event.data.matrix);
-              var quat = new Quat();
-              markerMat.getRotation(quat);
-              var ve = v3();
-              quat.getEulerAngles(ve);
-              console.log(ve);
-              star.position = this.getTrackPos(event.data.marker.pos);
-              star.angle = -ve.y; // star.setRotation(quat);
+              var star = find('Canvas/star'); // let markerMat = new Mat4();
+              // Mat4.fromArray(markerMat, event.data.matrix);
+              // let quat = new Quat();
+              // markerMat.getRotation(quat);
+              // let ve = v3();
+              // quat.getEulerAngles(ve)
+              // console.log(ve);
+
+              star.position = this.getTrackPos(event.data.marker.pos); // star.angle = -ve.y;
+              // star.setRotation(quat);
             } // if (event.data.type === globalThis.artoolkit.BARCODE_MARKER) {
           //     //识别黑白标记
           //     console.log('识别到类型：gartoolkit.BARCODE_MARKER');
@@ -296,7 +295,7 @@ System.register("chunks:///_virtual/AR_Track.ts", ['./_rollupPluginModLoBabelHel
 System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
   'use strict';
 
-  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, CCBoolean, Component, view, UITransform, sys;
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, CCBoolean, Component, view, sys, UITransform;
 
   return {
     setters: [function (module) {
@@ -314,8 +313,8 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
       CCBoolean = module.CCBoolean;
       Component = module.Component;
       view = module.view;
-      UITransform = module.UITransform;
       sys = module.sys;
+      UITransform = module.UITransform;
     }],
     execute: function () {
       var _dec, _dec2, _dec3, _dec4, _class, _class2, _descriptor, _descriptor2, _descriptor3, _temp;
@@ -372,22 +371,23 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
                     details = "%cwinSize : {width : " + winSize.width + ", height : " + winSize.height + "}  \n";
                     details += "visibleSize : {width : " + visibleSize.width + ", height : " + visibleSize.height + "}  \n";
                     details += "PixelRatio : " + rate + "\n";
+                    details += "ismobile: " + sys.isMobile + "\n";
                     details += "browserDetails :" + globalThis.adapter.browserDetails.browser + "     " + globalThis.adapter.browserDetails.version;
                     console.log(details, "color:#6666ff;font-weight:bold;font-size:14px");
                     /* ***************结束***************** */
 
                     this.getComponent(UITransform).setContentSize(visibleSize);
-                    _context.next = 11;
+                    _context.next = 12;
                     return this.getConnectedDevices('videoinput');
 
-                  case 11:
+                  case 12:
                     cameras = _context.sent;
 
                     if (cameras && cameras.length > 0) {
                       this.playVideoFromCamera();
                     }
 
-                  case 13:
+                  case 14:
                   case "end":
                     return _context.stop();
                 }
