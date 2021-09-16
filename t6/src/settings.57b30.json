@@ -8,13 +8,13 @@
     },
     "platform": "web-mobile",
     "bundleVers": {
-        "main": "3b13d"
+        "main": "ec9ad"
     },
     "subpackages": [],
     "remoteBundles": [],
     "hasResourcesBundle": false,
     "hasStartSceneBundle": false,
-    "launchScene": "db://assets/ar.scene",
+    "launchScene": "db://assets/AR_Recognition.scene",
     "jsList": [],
     "moduleIds": [],
     "renderPipeline": "",
