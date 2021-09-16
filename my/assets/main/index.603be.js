@@ -295,7 +295,7 @@ System.register("chunks:///_virtual/AR_Track.ts", ['./_rollupPluginModLoBabelHel
 System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
   'use strict';
 
-  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, CCBoolean, Component, view, sys, UITransform;
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, CCBoolean, director, Component, view, sys, UITransform;
 
   return {
     setters: [function (module) {
@@ -311,6 +311,7 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
       EventHandler = module.EventHandler;
       CCString = module.CCString;
       CCBoolean = module.CCBoolean;
+      director = module.director;
       Component = module.Component;
       view = module.view;
       sys = module.sys;
@@ -545,6 +546,7 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
               id: event.data.marker.idPatt
             });
             if (this.once) this.unscheduleAllCallbacks();
+            director.loadScene('game');
           } // if (event.data.type === globalThis.artoolkit.BARCODE_MARKER) {
           //     //识别黑白标记
           //     console.log('识别到类型：gartoolkit.BARCODE_MARKER');
