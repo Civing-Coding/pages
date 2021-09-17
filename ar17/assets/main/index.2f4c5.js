@@ -759,24 +759,28 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
                   case 5:
                     stream = _context3.sent;
                     videoElement = document.querySelector('video');
-                    videoElement.srcObject = stream; // await (videoElement as HTMLMediaElement).play();
-
-                    this._video = videoElement; // this.initARToolkit();
-
-                    _context3.next = 14;
-                    break;
+                    console.log('stream:' + stream);
+                    videoElement.srcObject = stream;
+                    _context3.next = 11;
+                    return videoElement.play();
 
                   case 11:
-                    _context3.prev = 11;
+                    this._video = videoElement; // this.initARToolkit();
+
+                    _context3.next = 17;
+                    break;
+
+                  case 14:
+                    _context3.prev = 14;
                     _context3.t0 = _context3["catch"](0);
                     console.error('Error opening video camera.', _context3.t0);
 
-                  case 14:
+                  case 17:
                   case "end":
                     return _context3.stop();
                 }
               }
-            }, _callee3, this, [[0, 11]]);
+            }, _callee3, this, [[0, 14]]);
           }));
 
           function playVideoFromCamera() {
