@@ -747,8 +747,8 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
                     winSize = view.getCanvasSize();
                     constraints = {
                       'video': {
-                        facingMode: "environment" // width: sys.isMobile ? winSize.height : winSize.width,
-                        // height: sys.isMobile ? winSize.width : winSize.height
+                        facingMode: "environment",
+                        width: sys.isMobile ? winSize.height : winSize.width // height: sys.isMobile ? winSize.width : winSize.height
 
                       },
                       'audio': false
