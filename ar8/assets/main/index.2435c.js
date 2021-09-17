@@ -740,7 +740,7 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
 
         _proto.playVideoFromCamera = /*#__PURE__*/function () {
           var _playVideoFromCamera = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-            var winSize, landscape, constraints, stream, videoElement;
+            var winSize, landscape, w, h, constraints, stream, videoElement;
             return regeneratorRuntime.wrap(function _callee3$(_context3) {
               while (1) {
                 switch (_context3.prev = _context3.next) {
@@ -748,41 +748,44 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
                     _context3.prev = 0;
                     winSize = view.getCanvasSize();
                     landscape = Utils.getQueryString('l') == '1';
+                    w = landscape ? winSize.height : winSize.width;
+                    h = landscape ? winSize.width : winSize.height;
+                    console.log('::' + this.node.position, w, h);
                     constraints = {
                       'video': {
                         facingMode: "environment",
-                        width: landscape ? winSize.height : winSize.width,
-                        height: landscape ? winSize.width : winSize.height
+                        width: w,
+                        height: h
                       },
                       'audio': false
                     };
-                    _context3.next = 6;
+                    _context3.next = 9;
                     return navigator.mediaDevices.getUserMedia(constraints);
 
-                  case 6:
+                  case 9:
                     stream = _context3.sent;
                     videoElement = document.querySelector('video');
                     videoElement.srcObject = stream;
-                    _context3.next = 11;
+                    _context3.next = 14;
                     return videoElement.play();
 
-                  case 11:
+                  case 14:
                     this._video = videoElement;
                     this.initARToolkit();
-                    _context3.next = 18;
+                    _context3.next = 21;
                     break;
 
-                  case 15:
-                    _context3.prev = 15;
+                  case 18:
+                    _context3.prev = 18;
                     _context3.t0 = _context3["catch"](0);
                     console.error('Error opening video camera.', _context3.t0);
 
-                  case 18:
+                  case 21:
                   case "end":
                     return _context3.stop();
                 }
               }
-            }, _callee3, this, [[0, 15]]);
+            }, _callee3, this, [[0, 18]]);
           }));
 
           function playVideoFromCamera() {
