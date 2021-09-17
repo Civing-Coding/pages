@@ -747,9 +747,9 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
                     winSize = view.getCanvasSize();
                     constraints = {
                       'video': {
-                        facingMode: "environment",
-                        width: sys.isMobile ? winSize.height : winSize.width,
-                        height: sys.isMobile ? winSize.width : winSize.height
+                        facingMode: "environment" // width: sys.isMobile ? winSize.height : winSize.width,
+                        // height: sys.isMobile ? winSize.width : winSize.height
+
                       },
                       'audio': false
                     };
@@ -759,28 +759,27 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
                   case 5:
                     stream = _context3.sent;
                     videoElement = document.querySelector('video');
-                    console.log('stream:' + stream);
                     videoElement.srcObject = stream;
-                    _context3.next = 11;
+                    _context3.next = 10;
                     return videoElement.play();
 
-                  case 11:
+                  case 10:
                     this._video = videoElement; // this.initARToolkit();
 
-                    _context3.next = 17;
+                    _context3.next = 16;
                     break;
 
-                  case 14:
-                    _context3.prev = 14;
+                  case 13:
+                    _context3.prev = 13;
                     _context3.t0 = _context3["catch"](0);
                     console.error('Error opening video camera.', _context3.t0);
 
-                  case 17:
+                  case 16:
                   case "end":
                     return _context3.stop();
                 }
               }
-            }, _callee3, this, [[0, 14]]);
+            }, _callee3, this, [[0, 13]]);
           }));
 
           function playVideoFromCamera() {
