@@ -744,17 +744,13 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
                 switch (_context3.prev = _context3.next) {
                   case 0:
                     _context3.prev = 0;
-                    winSize = view.getCanvasSize(); // const constraints = {
-                    //     'video': {
-                    //         facingMode: "environment",
-                    //         width: sys.isMobile ? winSize.height : winSize.width,
-                    //         height: sys.isMobile ? winSize.width : winSize.height
-                    //     },
-                    //     'audio': false
-                    // };
-
+                    winSize = view.getCanvasSize();
                     constraints = {
-                      'video': true,
+                      'video': {
+                        facingMode: "environment",
+                        width: sys.isMobile ? winSize.height : winSize.width,
+                        height: sys.isMobile ? winSize.width : winSize.height
+                      },
                       'audio': false
                     };
                     _context3.next = 5;
@@ -768,22 +764,22 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
                     return videoElement.play();
 
                   case 10:
-                    this._video = videoElement;
-                    this.initARToolkit();
-                    _context3.next = 17;
+                    this._video = videoElement; // this.initARToolkit();
+
+                    _context3.next = 16;
                     break;
 
-                  case 14:
-                    _context3.prev = 14;
+                  case 13:
+                    _context3.prev = 13;
                     _context3.t0 = _context3["catch"](0);
                     console.error('Error opening video camera.', _context3.t0);
 
-                  case 17:
+                  case 16:
                   case "end":
                     return _context3.stop();
                 }
               }
-            }, _callee3, this, [[0, 14]]);
+            }, _callee3, this, [[0, 13]]);
           }));
 
           function playVideoFromCamera() {
