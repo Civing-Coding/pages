@@ -594,7 +594,7 @@ System.register("chunks:///_virtual/Utils.ts", ['./_rollupPluginModLoBabelHelper
 System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
   'use strict';
 
-  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, CCBoolean, director, Component, view, sys, UITransform;
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, CCBoolean, director, Component, view, sys;
 
   return {
     setters: [function (module) {
@@ -614,7 +614,6 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
       Component = module.Component;
       view = module.view;
       sys = module.sys;
-      UITransform = module.UITransform;
     }],
     execute: function () {
       var _dec, _dec2, _dec3, _dec4, _class, _class2, _descriptor, _descriptor2, _descriptor3, _temp;
@@ -675,19 +674,19 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
                     details += "browserDetails :" + globalThis.adapter.browserDetails.browser + "     " + globalThis.adapter.browserDetails.version;
                     console.log(details, "color:#6666ff;font-weight:bold;font-size:14px");
                     /* ***************结束***************** */
+                    // this.getComponent(UITransform).setContentSize(visibleSize);
 
-                    this.getComponent(UITransform).setContentSize(visibleSize);
-                    _context.next = 12;
+                    _context.next = 11;
                     return this.getConnectedDevices('videoinput');
 
-                  case 12:
+                  case 11:
                     cameras = _context.sent;
 
                     if (cameras && cameras.length > 0) {
                       this.playVideoFromCamera();
                     }
 
-                  case 14:
+                  case 13:
                   case "end":
                     return _context.stop();
                 }
@@ -747,9 +746,9 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
                     winSize = view.getCanvasSize();
                     constraints = {
                       'video': {
-                        facingMode: "environment",
-                        width: sys.isMobile ? winSize.height : winSize.width,
-                        height: sys.isMobile ? winSize.width : winSize.height
+                        facingMode: "environment" // width: sys.isMobile ? winSize.height : winSize.width,
+                        // height: sys.isMobile ? winSize.width : winSize.height
+
                       },
                       'audio': false
                     };
