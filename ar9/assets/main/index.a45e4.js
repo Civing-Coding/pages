@@ -591,10 +591,10 @@ System.register("chunks:///_virtual/Utils.ts", ['./_rollupPluginModLoBabelHelper
   };
 });
 
-System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc', './Utils.ts'], function (exports) {
+System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
   'use strict';
 
-  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, CCBoolean, director, Component, view, sys, UITransform, Utils;
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _asyncToGenerator, cclegacy, _decorator, EventHandler, CCString, CCBoolean, director, Component, view, sys, UITransform;
 
   return {
     setters: [function (module) {
@@ -615,8 +615,6 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
       view = module.view;
       sys = module.sys;
       UITransform = module.UITransform;
-    }, function (module) {
-      Utils = module.Utils;
     }],
     execute: function () {
       var _dec, _dec2, _dec3, _dec4, _class, _class2, _descriptor, _descriptor2, _descriptor3, _temp;
@@ -740,52 +738,48 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
 
         _proto.playVideoFromCamera = /*#__PURE__*/function () {
           var _playVideoFromCamera = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-            var winSize, landscape, w, h, constraints, stream, videoElement;
+            var winSize, constraints, stream, videoElement;
             return regeneratorRuntime.wrap(function _callee3$(_context3) {
               while (1) {
                 switch (_context3.prev = _context3.next) {
                   case 0:
                     _context3.prev = 0;
                     winSize = view.getCanvasSize();
-                    landscape = Utils.getQueryString('l') == '1';
-                    w = landscape ? winSize.height : winSize.width;
-                    h = landscape ? winSize.width : winSize.height;
-                    console.log('::' + this.node.position, w, h);
                     constraints = {
                       'video': {
                         facingMode: "environment",
-                        width: w,
-                        height: h
+                        width: sys.isMobile ? winSize.height : winSize.width,
+                        height: sys.isMobile ? winSize.width : winSize.height
                       },
                       'audio': false
                     };
-                    _context3.next = 9;
+                    _context3.next = 5;
                     return navigator.mediaDevices.getUserMedia(constraints);
 
-                  case 9:
+                  case 5:
                     stream = _context3.sent;
                     videoElement = document.querySelector('video');
                     videoElement.srcObject = stream;
-                    _context3.next = 14;
+                    _context3.next = 10;
                     return videoElement.play();
 
-                  case 14:
+                  case 10:
                     this._video = videoElement;
                     this.initARToolkit();
-                    _context3.next = 21;
+                    _context3.next = 17;
                     break;
 
-                  case 18:
-                    _context3.prev = 18;
+                  case 14:
+                    _context3.prev = 14;
                     _context3.t0 = _context3["catch"](0);
                     console.error('Error opening video camera.', _context3.t0);
 
-                  case 21:
+                  case 17:
                   case "end":
                     return _context3.stop();
                 }
               }
-            }, _callee3, this, [[0, 18]]);
+            }, _callee3, this, [[0, 14]]);
           }));
 
           function playVideoFromCamera() {
