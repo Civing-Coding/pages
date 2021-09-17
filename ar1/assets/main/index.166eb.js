@@ -747,7 +747,7 @@ System.register("chunks:///_virtual/AR_Recognition.ts", ['./_rollupPluginModLoBa
                   case 0:
                     _context3.prev = 0;
                     winSize = view.getCanvasSize();
-                    landscape = Utils.getQueryString('l');
+                    landscape = Utils.getQueryString('l') == '1';
                     constraints = {
                       'video': {
                         facingMode: "environment",
